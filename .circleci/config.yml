@@ -23,7 +23,7 @@ jobs:
         name: "test code"
         command: npm run test
      
-   analyze:
+   analyzecode:
      docker:
         - image: circleci/node:13.8.0
      steps:
@@ -41,6 +41,6 @@ workflows:
       - test:
           requires: 
             - build
-      - analyze:
+      - analyzecode:
          requires:
             - test
