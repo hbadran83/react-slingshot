@@ -10,28 +10,24 @@ jobs:
       - image: circleci/node:13.8.0    # Add steps to the job
     steps:
       - checkout
-      - run:
-          name: "build code"
-          command: npm run lint
+      - run: npm i
+      - run: npm run lint
           
   test:
    docker:
       - image: circleci/node:13.8.0
    steps:
     - checkout
-    - run:
-        name: "test code"
-        command: npm run test
+    - run: npm i
+    - run: npm run test
      
    analyzecode:
      docker:
         - image: circleci/node:13.8.0
      steps:
       - checkout
-      - run:
-          name: "analyze code"
-          command: npm audit
-   
+      - run: npm i
+      - run: npm run audit
 
 
 workflows:
